@@ -13,6 +13,7 @@
     <div>
         @foreach($posts as $post)
             <li>{{$post->title}}</li>
+            <p>{{$post->content}}</p>
         @endforeach
     </div>
 

@@ -10,4 +10,10 @@
         Home
     </div>
 
+    <div>
+        @foreach($posts as $post)
+            <li>{{$post->title}}</li>
+        @endforeach
+    </div>
+
 @endsection

@@ -9,7 +9,8 @@ class PagesController extends Controller
 {
     public function home()
     {
-        return view('welcome');
+        $posts = Post::all();
+        return view('welcome', compact('posts'));
     }
     public function overview()
     {
