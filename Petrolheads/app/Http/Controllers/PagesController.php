@@ -14,4 +14,8 @@ class PagesController extends Controller
     {
         return view('/overview');
     }
+    public function about()
+    {
+        return view('about');
+    }
 }
