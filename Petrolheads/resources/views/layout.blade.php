@@ -82,6 +82,7 @@
             <a href="/">Home</a>
             <a href="/overview">Overview</a>
             <a href="/about">About</a>
+            <a href="/posts">Posts</a>
         </div>
         @yield('content')
     </div>
