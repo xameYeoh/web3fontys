@@ -1,13 +1,13 @@
 @extends('layout')
 
 @section('title')
-    Petrolheads
+    Overview
 @endsection
 
 @section('content')
 
     <div class="title m-b-md">
-        Home
+        Overview
     </div>
 
 @endsection

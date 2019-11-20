@@ -2,7 +2,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>@yield('title', 'Laratin')</title>
+    <title>@yield('title', 'Petrolheads')</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -80,8 +80,7 @@
     <div class="content">
         <div class="links">
             <a href="/">Home</a>
-            <a href="/Tasks">Tasks</a>
-            <a href="/about">About</a>
+            <a href="/overview">Overview</a>
         </div>
         @yield('content')
     </div>

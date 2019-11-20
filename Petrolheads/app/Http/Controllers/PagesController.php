@@ -10,12 +10,8 @@ class PagesController extends Controller
     {
         return view('welcome');
     }
-    public function Tasks()
+    public function overview()
     {
-        return view('Tasks');
-    }
-    public function about()
-    {
-        return view('about');
+        return view('/overview');
     }
 }
