@@ -7,9 +7,6 @@
 @section('content')
 
 
-       <div class="title m-b-md">
-        Posts
-    </div>
 
     <div>
         @foreach($posts as $post)
@@ -19,3 +16,14 @@
     </div>
 
 @endsection
+
+@foreach($comments as $comment)
+    @section('commentator')
+        {{$comment->user_id}}
+    @endsection
+
+    @section('commentContent')
+        {{$comment->content}}
+    @endsection
+
+@endforeach

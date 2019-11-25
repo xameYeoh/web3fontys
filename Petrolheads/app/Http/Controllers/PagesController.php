@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Post;
+use \App\Comment;
+
 
 class PagesController extends Controller
 {
     public function home()
     {
         $posts = Post::all();
-        return view('welcome', compact('posts'));
+        $comments = Comment::all();
+        return view('welcome', compact('posts', 'comments'));
     }
     public function overview()
     {
@@ -23,7 +26,12 @@ class PagesController extends Controller
     public function index()
     {
         $posts = Post::all();
-
-        return view('posts.index', compact('posts'));
+        $comments = Comment::all();
+        return view('posts.index', compact('posts', 'comments'));
+    }
+    public function comments()
+    {
+        $comments = Comment::all();
+        return view('welcome', compact('comments'));
     }
 }
