@@ -6,7 +6,8 @@
 
 @section('content')
 
-    <div class="title m-b-md">
+
+       <div class="title m-b-md">
         Posts
     </div>
 
