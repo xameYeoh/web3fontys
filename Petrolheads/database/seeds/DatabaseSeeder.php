@@ -12,7 +12,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        DB::table('posts')->insert([
+        $this->call([
+            UsersTableSeeder::class,
+            PostsTableSeeder::class,
+            CommentsTableSeeder::class,
+        ]);
+     /*   DB::table('posts')->insert([
             'title' => 'Car',
             'content' => 'Super cool car',
         ]);
@@ -30,5 +35,6 @@ class DatabaseSeeder extends Seeder
             'post_id' => '1',
             'content' => 'Nice car!',
         ]);
+        */
     }
 }
