@@ -9,11 +9,10 @@
     
 
     <div>
-        @for($i = 0; $i <= 3); $i++) 
+        @foreach($posts as $post)
             <li><a href="/overview">{{$post->title}}</li>
-        @endfor
+        @endforeach
     </div>
     
 
 @endsection
-
