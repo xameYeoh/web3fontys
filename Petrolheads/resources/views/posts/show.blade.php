@@ -14,19 +14,15 @@
     </div>
 
     <a href="/posts/{{$post->id}}/edit">Edit</a>
-
-    @foreach($comments as $comment)
-        @section('commentator')
-            {{$comment->user_id}}
-        @endsection
-
-        @section('commentContent')
-            {{$comment->content}}
-        @endsection
-    @endforeach
     @include('layouts.comform')
+    @foreach($post->comments as $comment)
+        <div class="media mb-4">
+            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+            <div class="media-body">
+                <h5 class="mt-0">{{$comment->user_id}}</h5>
+                {{$comment->content}}
+            </div>
+        </div>
+    @endforeach
 
-    @include('layouts.comment')
-
-    @include('layouts.nescomment')
 @endsection
