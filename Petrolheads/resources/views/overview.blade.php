@@ -7,7 +7,7 @@
 @section('content')
 
     <div class="title m-b-md">
-        Overview
+        {{$posts[$i]->title}}
     </div>
 
 @endsection

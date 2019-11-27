@@ -16,9 +16,9 @@ class PagesController extends Controller
     }
     public function overview()
     {
-        $posts = Post::all();
+        $post = Post::findOrFail();
         $comments = Comment::all();
-        return view('/overview', compact('posts', 'comments'));
+        return view('/overview', compact('post', 'comments'));
     }
     public function about()
     {
@@ -34,5 +34,35 @@ class PagesController extends Controller
     {
         $comments = Comment::all();
         return view('welcome', compact('comments'));
+    }
+    public function create()
+    {
+        return view('posts.create');
+    }
+    public function store()
+    {
+        $post = new Post;
+        $post->title = request('title');
+        $post->content = request('content');
+
+        $post->save();
+
+        return redirect('/posts');
+    }
+    public function show()
+    {
+        return view('posts.create');
+    }
+    public function edit()
+    {
+        return view('posts.create');
+    }
+    public function update()
+    {
+        return view('posts.create');
+    }
+    public function destroy()
+    {
+        return view('posts.create');
     }
 }
