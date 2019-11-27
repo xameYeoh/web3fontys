@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-    Overview
+    Posts
 @endsection
 
 @section('content')

@@ -29,7 +29,7 @@
 
         @include('layouts.postform')
 
-       @include('layouts.sideelem')
+       
 
     </div>
     <!-- /.row -->
