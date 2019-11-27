@@ -12,12 +12,13 @@ class PagesController extends Controller
     public function home()
     {
         $posts = Post::all();
-        $comments = Comment::all();
-        return view('welcome', compact('posts', 'comments'));
+        return view('welcome', compact('posts'));
     }
     public function overview()
     {
-        return view('/overview');
+        $posts = Post::all();
+        $comments = Comment::all();
+        return view('/overview', compact('posts', 'comments'));
     }
     public function about()
     {
