@@ -9,9 +9,9 @@
     
 
     <div>
-        @foreach($posts as $post)
+        @for($i = 0; $i <= 3); $i++) 
             <li><a href="/overview">{{$post->title}}</li>
-        @endforeach
+        @endfor
     </div>
     @foreach($comments as $comment)
     @section('commentator')
