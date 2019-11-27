@@ -1,3 +1,6 @@
+<div class="container">
+
+    <div class="row">
 <!-- Post Content Column -->
 <div class="col-lg-8">
 
@@ -24,7 +27,13 @@
     </blockquote>
 
     <hr>
-
+    
+        <div>
+        @for($i = 0; $i <= 3; $i++) 
+            <li><a href="/overview">{{$posts[$i]->title}}</li>
+        @endfor
+    </div>
+    
     @include('layouts.comform')
 
     @include('layouts.comment')
@@ -32,3 +41,12 @@
     @include('layouts.nescomment')
 
 </div>
+
+
+       
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->

@@ -35,6 +35,7 @@ class PagesController extends Controller
         $comments = Comment::all();
         return view('welcome', compact('comments'));
     }
+<<<<<<< HEAD
     public function create()
     {
         return view('posts.create');
@@ -64,5 +65,14 @@ class PagesController extends Controller
     public function destroy()
     {
         return view('posts.create');
+=======
+    public function login()
+    {
+        return view('auth/login');
+    }
+    public function register()
+    {
+        return view('auth/register');
+>>>>>>> 45cc058b67067d9981fafb7597ff0d4b507c0c00
     }
 }

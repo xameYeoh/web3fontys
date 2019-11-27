@@ -1,16 +1,14 @@
-@extends('layout')
+
+@extends('layouts.app')
 
 @section('title')
     Petrolheads
 @endsection
 
 @section('content')
+@include('layouts.postform')
 
     
 
-    <div>
-        @for($i = 0; $i <= 3; $i++) 
-            <li><a href="/overview">{{$posts[$i]->title}}</li>
-        @endfor
-    </div>
+    
 @endsection
