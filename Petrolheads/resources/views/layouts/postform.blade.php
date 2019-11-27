@@ -27,11 +27,13 @@
     </blockquote>
 
     <hr>
-    <div>
-        @foreach($posts as $post)
-            <li><a href="/overview">{{$post->title}}</li>
-        @endforeach
+    
+        <div>
+        @for($i = 0; $i <= 3; $i++) 
+            <li><a href="/overview">{{$posts[$i]->title}}</li>
+        @endfor
     </div>
+    
     @include('layouts.comform')
 
     @include('layouts.comment')

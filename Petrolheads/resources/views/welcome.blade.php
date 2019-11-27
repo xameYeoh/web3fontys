@@ -7,4 +7,8 @@
 
 @section('content')
 @include('layouts.postform')
+
+    
+
+    
 @endsection
