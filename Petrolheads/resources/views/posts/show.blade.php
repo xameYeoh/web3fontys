@@ -7,11 +7,14 @@
 @section('content')
 
     <div class="title m-b-md">
-        {{$post->title}}
+        <h1>{{$post->title}}</h1>
     </div>
     <div>
             {{$post->content}}
     </div>
+
+    <a href="/posts/{{$post->id}}/edit">Edit</a>
+
     @foreach($comments as $comment)
         @section('commentator')
             {{$comment->user_id}}
