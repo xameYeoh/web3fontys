@@ -13,15 +13,7 @@
             <li><a href="/overview">{{$post->title}}</li>
         @endforeach
     </div>
-    @foreach($comments as $comment)
-    @section('commentator')
-        {{$comment->user_id}}
-    @endsection
-
-    @section('commentContent')
-        {{$comment->content}}
-    @endsection
-
-@endforeach
+    
 
 @endsection
+
