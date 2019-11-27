@@ -59,7 +59,10 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $comments = Comment::all();
+        
+        return view('posts.show', compact('post', 'comments'));
     }
 
     /**
@@ -70,7 +73,7 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
 
         return view('posts.edit', compact('post'));
     }
@@ -84,7 +87,14 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        $post->title = request('title');
+        $post->content = request('content');
+
+        $post->save();
+
+        return redirect('/posts');
     }
 
     /**
@@ -95,6 +105,8 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Post::findOrFail($id)->delete();
+
+        return redirect('/posts');
     }
 }

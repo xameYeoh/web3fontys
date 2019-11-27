@@ -30,7 +30,7 @@
     
         <div>
         @for($i = 0; $i <= 3; $i++) 
-            <li><a href="/overview">{{$posts[$i]->title}}</li>
+            <li><a href="/posts/{{$posts[$i]->id}}">{{$posts[$i]->title}}</li>
         @endfor
     </div>
     

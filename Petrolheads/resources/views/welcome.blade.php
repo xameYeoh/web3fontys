@@ -9,6 +9,4 @@
 @include('layouts.postform')
 
     
-
-    
 @endsection

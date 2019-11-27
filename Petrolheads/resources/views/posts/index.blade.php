@@ -38,25 +38,10 @@
     <hr>
     <div>
         @foreach($posts as $post)
-            <li>{{$post->title}}</li>
-            <p>{{$post->content}}</p>
+            <li><a href="/posts/{{$post->id}}">{{$post->title}}</li>
         @endforeach
-        @foreach($comments as $comment)
-    @section('commentator')
-        {{$comment->user_id}}
-    @endsection
-
-    @section('commentContent')
-        {{$comment->content}}
-    @endsection
-
-@endforeach
     </div>
-    @include('layouts.comform')
-
-    @include('layouts.comment')
-
-    @include('layouts.nescomment')
+    
 
 </div>
 
