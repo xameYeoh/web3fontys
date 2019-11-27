@@ -10,7 +10,7 @@
 
     <div>
         @foreach($posts as $post)
-            <li>{{$post->title}}</li>
+            <li><a href="/overview">{{$post->title}}</li>
         @endforeach
     </div>
     @foreach($comments as $comment)
