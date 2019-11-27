@@ -34,4 +34,12 @@ class PagesController extends Controller
         $comments = Comment::all();
         return view('welcome', compact('comments'));
     }
+    public function login()
+    {
+        return view('auth/login');
+    }
+    public function register()
+    {
+        return view('auth/register');
+    }
 }

@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('title')
     About us
@@ -16,3 +16,8 @@
     </div>
 
 @endsection
+
+
+
+
+

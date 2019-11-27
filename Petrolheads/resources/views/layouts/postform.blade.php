@@ -1,3 +1,6 @@
+<div class="container">
+
+    <div class="row">
 <!-- Post Content Column -->
 <div class="col-lg-8">
 
@@ -24,7 +27,11 @@
     </blockquote>
 
     <hr>
-
+    <div>
+        @foreach($posts as $post)
+            <li><a href="/overview">{{$post->title}}</li>
+        @endforeach
+    </div>
     @include('layouts.comform')
 
     @include('layouts.comment')
@@ -32,3 +39,12 @@
     @include('layouts.nescomment')
 
 </div>
+
+
+       
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
