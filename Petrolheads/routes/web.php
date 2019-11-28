@@ -18,6 +18,8 @@ Route::get('/posts/create', 'PostsController@create');
 */
 Route::resource('posts', 'PostsController');
 
+Route::post('/posts{post}/comments', 'PostCommentController@store');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

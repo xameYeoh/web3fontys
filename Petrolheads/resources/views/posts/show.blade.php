@@ -17,7 +17,9 @@
     </div>
 
     <a href="/posts/{{$post->id}}/edit">Edit</a>
+
     @include('layouts.comform')
+    
     @foreach($post->comments as $comment)
         <div class="media mb-4">
             <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
