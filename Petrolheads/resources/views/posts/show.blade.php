@@ -10,6 +10,9 @@
         <h1>{{$post->title}}</h1>
     </div>
     <div>
+        {{$post->created_at}}
+    </div>
+    <div>
             {{$post->content}}
     </div>
 

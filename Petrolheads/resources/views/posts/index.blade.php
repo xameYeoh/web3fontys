@@ -17,13 +17,6 @@
             <h1 class="mt-4">@yield('title', 'Post')</h1>
 
 
-            <hr>
-
-            <!-- Date/Time -->
-            <p>@yield('time', 'Yesterday')</p>
-
-            <hr>
-
             <!-- Preview Image -->
             <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
 
