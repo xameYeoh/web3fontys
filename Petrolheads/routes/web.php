@@ -6,6 +6,7 @@ Route::get('/about', 'PagesController@about');
 Route::get('/comments', 'PagesController@comments');
 Route::get('/login', 'PagesController@login');
 Route::get('/register', 'PagesController@register');
+Route::get('/profile', 'ProfileController@profile');
 
 /*
 Route::get('/posts', 'PagesController@index');
@@ -21,3 +22,5 @@ Route::resource('posts', 'PostsController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/send', 'mailController@send');
+Route::post('/addProfile', 'ProfileController@addProfile');
