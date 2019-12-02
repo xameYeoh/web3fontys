@@ -40,12 +40,13 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $post = new Post;
-        $post->title = request('title');
-        $post->content = request('content');
+        $validated = request()->validate([
+            'title' => ['required', 'min:10'],
+            'content' =>['required', 'min:20']
+        ]);
 
-        $post->save();
+
+        Post::create($validated);
 
         return redirect('/posts');
 
@@ -57,9 +58,8 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        $post = Post::findOrFail($id);
         $comments = Comment::all();
         
         return view('posts.show', compact('post', 'comments'));
@@ -71,10 +71,8 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        $post = Post::findOrFail($id);
-
         return view('posts.edit', compact('post'));
     }
 
@@ -85,14 +83,9 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Post $post)
     {
-        $post = Post::findOrFail($id);
-
-        $post->title = request('title');
-        $post->content = request('content');
-
-        $post->save();
+        $post->update(request(['title', 'content']));
 
         return redirect('/posts');
     }
@@ -103,9 +96,9 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        Post::findOrFail($id)->delete();
+        $post->delete();
 
         return redirect('/posts');
     }
