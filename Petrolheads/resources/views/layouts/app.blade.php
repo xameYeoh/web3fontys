@@ -8,11 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<<<<<<< HEAD
-    <title>{{ config('app.name', 'Petrolheads') }}</title>
-=======
     <title>Petrolheads</title>
->>>>>>> 9486d0efb4dff2e46ea4f4a1e30fbc6070510a25
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -29,11 +25,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-<<<<<<< HEAD
-                    {{ config('app.name', 'Petrolhead') }}
-=======
                     Petrolheads
->>>>>>> 9486d0efb4dff2e46ea4f4a1e30fbc6070510a25
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
