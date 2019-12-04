@@ -18,9 +18,9 @@
     <hr>
 
     <!-- Date/Time -->
-    <p>@yield('time', 'Yesterday')</p>
+    
 
-    <hr>
+    
 
     
     <div>
