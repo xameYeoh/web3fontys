@@ -26,6 +26,10 @@ class PagesController extends Controller
     {
         return view('about');
     }
+    public function profile()
+    {
+        return view('profiles.profile');
+    }
     public function index()
     {
         $posts = Post::all();

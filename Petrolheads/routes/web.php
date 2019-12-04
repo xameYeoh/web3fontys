@@ -7,6 +7,7 @@ Route::get('/comments', 'PagesController@comments');
 Route::get('/login', 'PagesController@login');
 Route::get('/register', 'PagesController@register');
 Route::get('/profile', 'ProfileController@profile');
+Route::get('/profile', 'PagesController@profile');
 
 /*
 Route::get('/posts', 'PagesController@index');
