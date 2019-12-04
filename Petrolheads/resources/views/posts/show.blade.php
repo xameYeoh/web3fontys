@@ -5,8 +5,12 @@
 @endsection
 
 @section('content')
+<div class="container">
 
-    <div class="title m-b-md">
+    <div class="row">
+<!-- Post Content Column -->
+        <div class="col-lg-8">
+        <div class="title m-b-md">
         <h1>{{$post->title}}</h1>
     </div>
     <div>
@@ -28,9 +32,13 @@
                 {{$comment->content}}
             </div>
         </div>
-        <button type="submit" class="btn btn-primary btn-lg">
-                                        {{ __('Add Profile') }}
-                                    </button>
+        
     @endforeach
+            
+            
 
+        </div>
+    </div>
+</div>
 @endsection
+
