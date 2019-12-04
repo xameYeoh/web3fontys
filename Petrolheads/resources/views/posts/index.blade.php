@@ -17,11 +17,11 @@
             <h1 class="mt-4">@yield('title', 'Post')</h1>
             
                                     
-                                <a class="nav-link" href="{{ url('/posts/create') }}">{{ __('Create Post') }}</a>
+                                
                                           
 
             <!-- Preview Image -->
-            <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+            
 
             <hr>
 
@@ -30,7 +30,7 @@
                 <p class="mb-0">@yield('content')</p>
                 
             </blockquote>
-
+            <a class="nav-link" href="{{ url('/posts/create') }}">{{ __('Create Post') }}</a>
             <hr>
             <div>
                 @foreach($posts as $post)

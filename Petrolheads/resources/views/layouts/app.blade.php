@@ -55,7 +55,7 @@
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @else
-                            <li class="nav-item"> <a class="nav-link" href="{{url('/home')}}">Home</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="{{url('/home')}}">Profile</a></li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/about') }}">{{ __('About') }}</a>
                             </li>
@@ -69,7 +69,7 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li> <a class="dropdown-item" href="{{url('/profile')}}">Profile</a></li>
+                                    <li> <a class="dropdown-item" href="{{url('/profile')}}">Edit Profile</a></li>
                                     <li> <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
