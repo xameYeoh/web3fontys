@@ -28,6 +28,9 @@
                 {{$comment->content}}
             </div>
         </div>
+        <button type="submit" class="btn btn-primary btn-lg">
+                                        {{ __('Add Profile') }}
+                                    </button>
     @endforeach
 
 @endsection

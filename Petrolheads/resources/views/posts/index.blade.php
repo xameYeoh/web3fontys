@@ -15,7 +15,10 @@
 
             <!-- Title -->
             <h1 class="mt-4">@yield('title', 'Post')</h1>
-
+            
+                                    
+                                <a class="nav-link" href="{{ url('/posts/create') }}">{{ __('Create Post') }}</a>
+                                          
 
             <!-- Preview Image -->
             <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
@@ -39,6 +42,7 @@
         </div>
     </div>
 </div>
+
 @endsection
 
 
