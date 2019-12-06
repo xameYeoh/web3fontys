@@ -20,7 +20,9 @@
             {{$post->content}}
     </div>
 
-    <a href="/posts/{{$post->id}}/edit">Edit</a>
+    @can('update', $post)
+        <a href="/posts/{{$post->id}}/edit">Edit</a>
+    @endcan    
 
     @include('layouts.comform')
     
