@@ -14,18 +14,18 @@
 
                     <div class="panel-body">
                     <form method="POST" action="/posts">
-        {{csrf_field()}}
+                        {{csrf_field()}}
 
-    <div>
-        <input type="text" name="title" placeholder="Title" required value="{{old('title')}}" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" >
-    </div>
-    <div>
-        <input type="text" name="content" placeholder="Whats on your mind" required value="{{old('content')}}" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" >
-    </div>
-    <div>
-        <button type="submit" class="btn btn-primary btn-lg">Post</button>
-    </div>
-</form>
+                        <div>
+                            <input type="text" name="title" placeholder="Title" required value="{{old('title')}}" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" >
+                        </div>
+                        <div>
+                            <input type="text" name="content" placeholder="Whats on your mind" required value="{{old('content')}}" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" >
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary btn-lg">Post</button>
+                        </div>
+                    </form>
                     </div>
                 </div>
             </div>

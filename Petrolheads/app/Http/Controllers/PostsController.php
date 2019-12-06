@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\Post;
 use \App\Comment;
+use Auth;
 
 class PostsController extends Controller
 {
@@ -13,6 +14,12 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except'=> 'show']);
+    }
+    
     public function index()
     {
         //
@@ -46,7 +53,7 @@ class PostsController extends Controller
         ]);
 
 
-        Post::create($validated);
+        Post::create($validated + ['owner_id' => auth()->id()]);
 
         return redirect('/posts');
 
