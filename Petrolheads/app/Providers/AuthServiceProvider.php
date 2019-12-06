@@ -25,6 +25,15 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
     }
+    //public function boot(Gate $gate)
+    //{
+    //    $this->registerPolicies();
+
+        
+    //    Gate::before(function ($user) {
+    //        return $user->id == 2;
+    //    });
+
+    //}
 }
