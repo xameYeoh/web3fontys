@@ -7,7 +7,10 @@ Route::get('/comments', 'PagesController@comments');
 Route::get('/login', 'PagesController@login');
 Route::get('/register', 'PagesController@register');
 Route::get('/profile', 'ProfileController@profile');
-Route::get('/profile', 'PagesController@profile');
+
+
+Route::get('profiles/{profile}/edit',  ['as' => 'profiles.edit', 'uses' => 'ProfileController@edit']);
+Route::patch('profiles/{profile}/update',  ['as' => 'profiles.update', 'uses' => 'ProfileController@update']);
 
 /*
 Route::get('/posts', 'PagesController@index');
