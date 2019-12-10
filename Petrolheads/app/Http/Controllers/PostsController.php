@@ -80,6 +80,12 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
+        //abort_if($post->owner_id !== auth()->id(), 404);
+
+        if(\Gate::denies('update', $post)){
+            abort(404);
+        }
+
         return view('posts.edit', compact('post'));
     }
 
