@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->integer('owner_id')->unsigned();
             $table->string('title');
             $table->text('content');
+            $table->string('profile_pic');
             $table->timestamps();
 
             $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
