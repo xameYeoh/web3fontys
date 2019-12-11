@@ -1,5 +1,10 @@
 @extends('layouts.app')
-
+<style type="text/css">
+    .postPic{
+        max-width: 100%;
+        height: auto;
+    }
+</style>
 @section('title')
     Overview
 @endsection
@@ -15,6 +20,9 @@
     </div>
     <div>
         {{$post->created_at}}
+    </div>
+    <div class="col-md-12">
+        <img src="{{$post->post_image}}" alt="" class="postPic">
     </div>
     <div>
             {{$post->content}}

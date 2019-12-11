@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\DB;
+
 use \App\Post;
 use \App\Comment;
 use Auth;
@@ -47,15 +52,25 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = request()->validate([
-            'title' => ['required', 'min:10'],
-            'content' =>['required', 'min:20']
-        ]);
-
-
-        Post::create($validated + ['owner_id' => auth()->id()]);
-
-        return redirect('/posts');
+        //$validated = request()->validate([
+        //    'title' => ['required', 'min:10'],
+        //    'content' =>['required', 'min:20'],
+        //    'post_image' => 'required'
+        //]);
+    //$post->create($validated + ['owner_id' => auth()->id()]);
+        $post = new Post;
+        $post->owner_id = Auth()->id();
+        $post->title = $request->input('title');
+        $post->content = $request->input('content'); 
+        $url = '';
+        if(Input::hasFile('post_image')){
+            $file = Input::file('post_image');
+            $file->move(public_path(). '/uploads/', $file->getClientOriginalName());
+            $url = URL::to("/") . '/uploads/'. $file->getClientOriginalName();
+        }
+        $post->post_image = $url;
+        $post->save();
+        return redirect('/posts')->with('response', 'Post Added Successfully');
 
     }
 
@@ -96,11 +111,30 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Post $post)
+    public function update(Post $post, Request $request)
     {
-        $post->update(request(['title', 'content']));
+        //$post->update(request(['title', 'content', 'post_image']));
 
-        return redirect('/posts');
+        //return redirect('/posts');
+
+        //$url = '';
+
+        $data = $request->validate([
+            'title' => ['required', 'min:10'],
+            'content' =>['required', 'min:20'],
+            'post_image' => 'required'
+        ]);
+        if(Input::hasFile('post_image')){
+            $file = Input::file('post_image');
+            $file->move(public_path(). '/uploads/', $file->getClientOriginalName());
+            $url = URL::to("/") . '/uploads/'. $file->getClientOriginalName();
+            $post->post_image = $url;
+        }
+
+        $post->update($data);
+
+        return redirect('/posts')->with('response', 'Post Updated Successfully');
+
     }
 
     /**
