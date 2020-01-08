@@ -82,10 +82,17 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
-        $comments = Comment::all();
-
+        //$comments = Comment::all();
+        $comments = DB::table('users') 
+        ->join('comments', 'users.id', '=', 'comments.user_id')
+        ->join('posts', 'comments.post_id', '=', 'posts.id')
+        ->select('users.name', 'comments.*')
+        ->where(['posts.id' => $post->id])
+        ->get();
         return view('posts.show', compact('post', 'comments'));
     }
+
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -148,5 +155,16 @@ class PostsController extends Controller
         $post->delete();
 
         return redirect('/posts');
+    }
+    public function comment(Request $request, $post_id){
+        $this ->validate($request, [
+            'comment' => 'required',
+        ]);
+        $comment = new Comment;
+        $comment->user_id = Auth::user()->id;
+        $comment->post_id = $post_id;
+        $comment->content = $request->input('comment');
+        $comment->save();
+        return redirect("/posts/{$post_id}")->with('response', 'Comment Added Successfully');
     }
 }

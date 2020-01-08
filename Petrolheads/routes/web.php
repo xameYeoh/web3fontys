@@ -33,3 +33,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/send', 'mailController@send');
 Route::post('/addProfile', 'ProfileController@addProfile');
+Route::post('/comment/{id}', 'PostsController@comment')->middleware('auth');
