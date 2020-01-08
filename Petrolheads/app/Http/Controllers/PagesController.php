@@ -30,6 +30,10 @@ class PagesController extends Controller
     {
         return view('profiles.profile');
     }
+    public function form()
+    {
+        return view('form');
+    }
     public function index()
     {
         $posts = Post::all();
