@@ -8,9 +8,6 @@ Route::get('/login', 'PagesController@login');
 Route::get('/register', 'PagesController@register');
 Route::get('/profile', 'ProfileController@profile');
 
-Route::get('/form', 'PagesController@form');
-Route::post('submit', 'UserController@submit');
-Route::get('export', 'UserController@export');
 
 Route::get('profiles/{profile}/edit',  ['as' => 'profiles.edit', 'uses' => 'ProfileController@edit']);
 Route::patch('profiles/{profile}/update',  ['as' => 'profiles.update', 'uses' => 'ProfileController@update']);

@@ -11,7 +11,7 @@
                             @method('PATCH')
                             @csrf
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                                <label for="designation" class="col-md-4 col-form-label text-md-right">{{ __('Designation') }}</label>
                                 <div class="col-md-6">
                                     <input type="text" name="name"  placeholder="Update Name" value="{{$profile->name}}" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" >
                                 </div>
@@ -23,7 +23,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="profile_pic" class="col-md-4 col-form-label text-md-right">{{ __('Profile picture') }}</label>
+                                <label for="designation" class="col-md-4 col-form-label text-md-right">{{ __('Designation') }}</label>
                                 <div class="col-md-6">
                                     <input type ="file" name="profile_pic" placeholder="Update profile picture" value="{{$profile->profile_pic}}" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" >
                                 </div>
