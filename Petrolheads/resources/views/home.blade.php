@@ -2,7 +2,7 @@
 <style type="text/css">
     .avatar{
         border-radius: 100%;
-        max-width: 250px;
+        max-width: 150px;
     }
 </style>
 @section('content')

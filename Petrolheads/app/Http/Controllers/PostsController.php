@@ -82,10 +82,17 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
-        $comments = Comment::all();
-
+        //$comments = Comment::all();
+        $comments = DB::table('users') 
+        ->join('comments', 'users.id', '=', 'comments.user_id')
+        ->join('posts', 'comments.post_id', '=', 'posts.id')
+        ->select('users.name', 'comments.*')
+        ->where(['posts.id' => $post->id])
+        ->get();
         return view('posts.show', compact('post', 'comments'));
     }
+
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -113,27 +120,27 @@ class PostsController extends Controller
      */
     public function update(Post $post, Request $request)
     {
-        //$post->update(request(['title', 'content', 'post_image']));
-
-        //return redirect('/posts');
-
-        //$url = '';
-
+        
+        
+        $url = '';
         $data = $request->validate([
             'title' => ['required', 'min:10'],
             'content' =>['required', 'min:20'],
             'post_image' => 'required'
-        ]);
-        if(Input::hasFile('post_image')){
-            $file = Input::file('post_image');
-            $file->move(public_path(). '/uploads/', $file->getClientOriginalName());
-            $url = URL::to("/") . '/uploads/'. $file->getClientOriginalName();
+            ]);
+            if(Input::hasFile('post_image')){
+                $file = Input::file('post_image');
+                $file->move(public_path(). '/uploads/', $file->getClientOriginalName());
+                $url = URL::to("/") . '/uploads/'. $file->getClientOriginalName();
+            }
             $post->post_image = $url;
-        }
-
-        $post->update($data);
-
-        return redirect('/posts')->with('response', 'Post Updated Successfully');
+            
+            $post->update(request(['title', 'content', 'post_image']));
+            
+            //$post->update($data);
+            
+            return redirect('/posts');
+        //return redirect('/posts')->with('response', 'Post Updated Successfully');
 
     }
 
@@ -148,5 +155,16 @@ class PostsController extends Controller
         $post->delete();
 
         return redirect('/posts');
+    }
+    public function comment(Request $request, $post_id){
+        $this ->validate($request, [
+            'comment' => 'required',
+        ]);
+        $comment = new Comment;
+        $comment->user_id = Auth::user()->id;
+        $comment->post_id = $post_id;
+        $comment->content = $request->input('comment');
+        $comment->save();
+        return redirect("/posts/{$post_id}")->with('response', 'Comment Added Successfully');
     }
 }
