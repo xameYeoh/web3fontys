@@ -34,3 +34,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/send', 'mailController@send');
 Route::post('/addProfile', 'ProfileController@addProfile');
 Route::post('/comment/{id}', 'PostsController@comment')->middleware('auth');
+Route::get('change-password', 'ChangePasswordController@index');
+Route::post('change-password', 'ChangePasswordController@store')->name('change.password');

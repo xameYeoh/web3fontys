@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
 
 use \App\Post;
 use \App\Comment;
@@ -65,8 +66,18 @@ class PostsController extends Controller
         $url = '';
         if(Input::hasFile('post_image')){
             $file = Input::file('post_image');
+            
+            
+
             $file->move(public_path(). '/uploads/', $file->getClientOriginalName());
+
+            
+
             $url = URL::to("/") . '/uploads/'. $file->getClientOriginalName();
+            
+            $img = Image::make(public_path('/uploads/'. $file->getClientOriginalName()));
+            $img->insert(public_path('images/watermark.png'), 'bottom-right', 0, 0);
+            $img->save(public_path('/uploads/'. $file->getClientOriginalName())); 
         }
         $post->post_image = $url;
         $post->save();
@@ -132,6 +143,9 @@ class PostsController extends Controller
                 $file = Input::file('post_image');
                 $file->move(public_path(). '/uploads/', $file->getClientOriginalName());
                 $url = URL::to("/") . '/uploads/'. $file->getClientOriginalName();
+                $img = Image::make(public_path('/uploads/'. $file->getClientOriginalName()));
+            $img->insert(public_path('images/watermark.png'), 'bottom-right', 0, 0);
+            $img->save(public_path('/uploads/'. $file->getClientOriginalName())); 
             }
             $post->post_image = $url;
             

@@ -36,6 +36,8 @@
                             </div>
                         <div class="col-md-4">
                             <a href="{{ route('profiles.edit', $profile->id) }}"> Edit </a>
+                        </div><div class="col-md-4">
+                            <a href="{{ url('change-password') }}"> Change Password </a>
                         </div>
                         @else
                             <div class="col-md-4">

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\URL;
+use Intervention\Image\Facades\Image;
 use App\Http\Requests;
 use App\Depress;
 
@@ -46,6 +47,9 @@ class ProfileController extends Controller
                 $file = Input::file('profile_pic');
                 $file->move(public_path() . '/uploads/', $file->getClientOriginalName());
                 $url = URL::to("/") . '/uploads/' . $file->getClientOriginalName();
+                $img = Image::make(public_path('/uploads/'. $file->getClientOriginalName()));
+            $img->insert(public_path('images/watermark.png'), 'bottom', 0, 0);
+            $img->save(public_path('/uploads/'. $file->getClientOriginalName())); 
             }
             $profiles->profile_pic = $url;
             $profiles->save();
@@ -70,6 +74,9 @@ class ProfileController extends Controller
             $file = Input::file('profile_pic');
             $file->move(public_path() . '/uploads/', $file->getClientOriginalName());
             $url = URL::to("/") . '/uploads/'. $file->getClientOriginalName();
+            $img = Image::make(public_path('/uploads/'. $file->getClientOriginalName()));
+            $img->insert(public_path('images/watermark.png'), 'bottom', 0, 0);
+            $img->save(public_path('/uploads/'. $file->getClientOriginalName())); 
             $profile ->profile_pic = $url;
         }
 
