@@ -78,8 +78,8 @@ class RegisterController extends Controller
         $user = $this->create($request->all());
         // After the user is created, he's logged in.
         $this->guard()->login($user);
-        return $this->registered($request, $user)
-            ?: redirect($this->redirectPath());
+        return $this->registered($request, $user);
+            redirect('/');
     }
     protected function registered(Request $request, $user)
     {
