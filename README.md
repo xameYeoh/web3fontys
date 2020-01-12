@@ -1,4 +1,7 @@
 # WEB3_DimitarIvanov_MartinGrigorov_KirillGetmanskii
+**Notes: **
+* maatwebsite/excel should be specifically version 2.1.30 otherwise excel export does not work on the neweset 3.1 version
+* to export users as a table in excel file you need to go to url: http://127.0.0.1:8000/export
 
 **Packages included:**
 
@@ -104,8 +107,6 @@
 * zendframework/zend-diactoros          1.8.7    PSR HTTP Message implementations
 
 
-**Notes: **
-* maatwebsite/excel should be specifically version 2.1.30 otherwise excel export does not work on the neweset 3.1 version
-* to export users as a table in excel file you need to go to url: http://127.0.0.1:8000/export
+
 
 
