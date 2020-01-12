@@ -120,6 +120,7 @@ class PostsController extends Controller
         }
 
         return view('posts.edit', compact('post'));
+        
     }
 
     /**
@@ -131,30 +132,26 @@ class PostsController extends Controller
      */
     public function update(Post $post, Request $request)
     {
-        
-        
-        $url = '';
         $data = $request->validate([
-            'title' => ['required', 'min:10'],
-            'content' =>['required', 'min:20'],
-            'post_image' => 'required'
-            ]);
-            if(Input::hasFile('post_image')){
-                $file = Input::file('post_image');
-                $file->move(public_path(). '/uploads/', $file->getClientOriginalName());
-                $url = URL::to("/") . '/uploads/'. $file->getClientOriginalName();
-                $img = Image::make(public_path('/uploads/'. $file->getClientOriginalName()));
+            'title' => 'required',
+            'content' => 'required',
+            'post_image',
+        ]);
+        if (Input::hasFile('post_image')) {
+            $file = Input::file('post_image');
+            $file->move(public_path() . '/uploads/', $file->getClientOriginalName());
+            $url = URL::to("/") . '/uploads/'. $file->getClientOriginalName();
+            $img = Image::make(public_path('/uploads/'. $file->getClientOriginalName()));
             $img->insert(public_path('images/watermark.png'), 'bottom-right', 0, 0);
             $img->save(public_path('/uploads/'. $file->getClientOriginalName())); 
-            }
-            $post->post_image = $url;
-            
-            $post->update(request(['title', 'content', 'post_image']));
-            
-            //$post->update($data);
-            
-            return redirect('/posts');
-        //return redirect('/posts')->with('response', 'Post Updated Successfully');
+            $post ->post_image = $url;
+        }
+        
+        $post->fill($data);
+        $post->save();
+        return redirect('/posts');
+        
+        
 
     }
 
