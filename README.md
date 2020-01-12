@@ -3,7 +3,7 @@
 * maatwebsite/excel should be specifically version 2.1.30 otherwise excel export does not work on the neweset 3.1 version
 * to export users as a table in excel file you need to go to url: http://127.0.0.1:8000/export
 * php version should be lower than 7.4 for export to work
-* 
+
 **Packages included:**
 
 * defuse/php-encryption                 v2.2.1   Secure PHP Encryption Library
