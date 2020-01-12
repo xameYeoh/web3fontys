@@ -20,7 +20,7 @@
                             <input type="text" name="title" placeholder="Title" required value="{{old('title')}}" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" >
                         </div>
                         <div>
-                            <input type="text" name="content" placeholder="Whats on your mind" required value="{{old('content')}}" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" >
+                        <textarea  name="content" placeholder="Content" value="" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"  rows="13"></textarea>
                         </div>
                         <div class="form-group row">
                             <label for="post_image" class="col-md-4 col-form-label text-md-right">{{ __('Featured Image') }}</label>

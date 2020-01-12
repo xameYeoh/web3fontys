@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Excel;
 use DB;
 use App\User;
-use Excel;
-
 class UserController extends Controller
 {
     public function submit(Request $request)
