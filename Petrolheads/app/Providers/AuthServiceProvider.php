@@ -6,6 +6,7 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use App\Profile;
+use Laravel\Passport\Passport;
 use App\Policies\ProfilePolicy;
 
 class AuthServiceProvider extends ServiceProvider
@@ -29,15 +30,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        Passport::routes();
     }
-    //public function boot(Gate $gate)
-    //{
-    //    $this->registerPolicies();
 
-        
-    //    Gate::before(function ($user) {
-    //        return $user->id == 2;
-    //    });
-
-    //}
 }

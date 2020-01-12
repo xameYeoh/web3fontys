@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Excel;
 use DB;
 use App\User;
+
 class UserController extends Controller
 {
     public function submit(Request $request)
