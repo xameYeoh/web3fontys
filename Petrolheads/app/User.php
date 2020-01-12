@@ -3,12 +3,11 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Laravel\Passport\HasApiTokens;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, Notifiable;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -27,11 +26,4 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    public function generateToken()
-    {
-        $this->api_token = str_random(60);
-        $this->save();
-
-        return $this->api_token;
-    }
 }

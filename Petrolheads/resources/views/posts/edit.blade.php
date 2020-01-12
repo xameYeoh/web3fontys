@@ -13,7 +13,7 @@
                     <div class="panel-heading"> Edit Post </div>
 
                     <div class="panel-body">
-<form method="POST" action="/posts/{{ $post->id }}">
+                    <form method="POST" action="/posts/{{ $post->id }}">
     @method('PATCH')
     @csrf
 
