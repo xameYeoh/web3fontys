@@ -69,4 +69,21 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+//    public function register(Request $request)
+//    {
+//
+//        $this->validator($request->all())->validate();
+//
+//        $user = $this->create($request->all());
+//        // After the user is created, he's logged in.
+//        $this->guard()->login($user);
+//        return $this->registered($request, $user);
+//            redirect('/');
+//    }
+//    protected function registered(Request $request, $user)
+//    {
+//        $user->generateToken();
+//
+//        return response()->json(['data' => $user->toArray()], 201);
+//    }
 }
