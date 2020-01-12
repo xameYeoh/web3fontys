@@ -1,5 +1,10 @@
 @extends('layouts.app')
-
+<style type="text/css">
+    .postPic{
+        max-width: 500px;
+        height: auto;
+    }
+</style>
 @section('title')
     Overview
 @endsection
@@ -16,25 +21,43 @@
     <div>
         {{$post->created_at}}
     </div>
+    <div class="col-md-12">
+        <img src="{{$post->post_image}}" alt="" class="postPic">
+    </div>
     <div>
             {{$post->content}}
     </div>
 
-    <a href="/posts/{{$post->id}}/edit">Edit</a>
+    @can('update', $post)
+        <a href="/posts/{{$post->id}}/edit">Edit</a>
+    @endcan    
 
-    @include('layouts.comform')
     
-    @foreach($post->comments as $comment)
-        <div class="media mb-4">
-            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-            <div class="media-body">
-                <h5 class="mt-0">{{$comment->user_id}}</h5>
-                {{$comment->content}}
-            </div>
-        </div>
+    
+    
+    <form method="POST" action='{{ url("/comment/{$post->id}")}}'>
+                    @csrf
+                        <div class="form-group">
+                        <textarea id="comment" rows="6" class="form-control" name="comment" required autofocus></textarea>
+                        </div>
+                        <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-lg btn-block">POST COMMENT</button>
+                        </div>
+                    </form>
+
+                    <h3>Comments</h3>
+                    
+                    @if(count($comments) > 0)
+                    @foreach($post->comments as $comment)
+                    <hr/>
+                        <p>{{$comment->content}}</p>
+                        <p>Posted At:&nbsp;{{$comment->created_at}}</p>
         
-    @endforeach
-            
+                    @endforeach
+                    @else
+                        <hr/>
+                        <p>No Comments Available</p>
+                    @endif
             
 
         </div>

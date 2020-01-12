@@ -7,7 +7,13 @@ Route::get('/comments', 'PagesController@comments');
 Route::get('/login', 'PagesController@login');
 Route::get('/register', 'PagesController@register');
 Route::get('/profile', 'ProfileController@profile');
-Route::get('/profile', 'PagesController@profile');
+
+Route::get('/form', 'PagesController@form');
+Route::post('submit', 'UserController@submit');
+Route::get('export', 'UserController@export');
+
+Route::get('profiles/{profile}/edit',  ['as' => 'profiles.edit', 'uses' => 'ProfileController@edit']);
+Route::patch('profiles/{profile}/update',  ['as' => 'profiles.update', 'uses' => 'ProfileController@update']);
 
 /*
 Route::get('/posts', 'PagesController@index');
@@ -27,3 +33,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/send', 'mailController@send');
 Route::post('/addProfile', 'ProfileController@addProfile');
+Route::post('/comment/{id}', 'PostsController@comment')->middleware('auth');
+Route::get('change-password', 'ChangePasswordController@index');
+Route::post('change-password', 'ChangePasswordController@store')->name('change.password');

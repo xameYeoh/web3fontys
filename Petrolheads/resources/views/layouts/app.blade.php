@@ -69,7 +69,11 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li> <a class="dropdown-item" href="{{url('/profile')}}">Edit Profile</a></li>
+                                    @if(!empty($profile))
+                                    <li> <a class="dropdown-item" href="{{route('profiles.edit', $profile->id)}}">Edit Profile</a></li>
+                                        @else
+                                             <li> <a class="dropdown-item" href="{{url('/profile')}}">Create Profile</a></li>
+                                    @endif
                                     <li> <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

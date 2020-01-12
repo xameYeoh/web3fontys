@@ -21,7 +21,12 @@
         <input type="text" name="title" placeholder="Update title" value="{{$post->title}}" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" >
     </div>
     <div>
-        <input name="content" placeholder="Update content" value="{{$post->content}}" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" >
+        <textarea  name="content" placeholder="Update content" value="{{$post->content}}" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"  rows="13">{{$post->content}}</textarea>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-6">
+            <input type ="file" name="post_image" placeholder="Update post image" value="{{$post->post_image}}" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" >
+        </div>
     </div>
     <div>
         <button type="submit" class="btn btn-primary btn-lg">Update</button>

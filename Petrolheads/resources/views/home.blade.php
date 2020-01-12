@@ -2,7 +2,7 @@
 <style type="text/css">
     .avatar{
         border-radius: 100%;
-        max-width: 100px;
+        max-width: 150px;
     }
 </style>
 @section('content')
@@ -34,6 +34,11 @@
                             <div class="col-md-8">
                                 <p>Designation: {{$profile->designation}}</p>
                             </div>
+                        <div class="col-md-4">
+                            <a href="{{ route('profiles.edit', $profile->id) }}"> Edit </a>
+                        </div><div class="col-md-4">
+                            <a href="{{ url('change-password') }}"> Change Password </a>
+                        </div>
                         @else
                             <div class="col-md-4">
                                 <img src="{{url('images/avatar.png')}}" class= "avatar" alt="">
